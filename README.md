@@ -17,8 +17,8 @@ Observação: Todo o código deve ser escrito no notebook workspace.ipynb, na pa
 
 ### Aplicaçao
 
-O candidato deve fazer um fork do projeto ou baixar o zip do projeto, realizar todas as correções e implementações de código necessárias, enviar tudo para o github ou fazer um zip do projeto e compartilhar no e-mail observatório@sistemafiea.com.br
+O candidato deve fazer um fork ou baixar o zip do projeto, realizar todas as correções e implementações de código necessárias, enviar tudo para o github ou fazer um zip do projeto e compartilhar no e-mail observatório@sistemafiea.com.br
 
 ### Avaliação
 
-O avaliador deve clonar o projeto ou baixar o zip do projeto e descompacta-lo, acessar a pasta do projeto, subir os containers, acessar o airflow no link http://localhost:11000, executar a DAG pesquisa_industrial_anual_empresas e conferir o resultado na pasta resulta
+O avaliador deve clonar ou baixar o zip do projeto e descompacta-lo, acessar a pasta do projeto, subir os containers, acessar o airflow no link http://localhost:11000, executar a DAG pesquisa_industrial_anual_empresas e conferir o resultado na pasta resulta
