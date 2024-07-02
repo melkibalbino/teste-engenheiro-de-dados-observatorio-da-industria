@@ -22,4 +22,3 @@ O candidato deve fazer um fork do projeto, realizar todas as correções e imple
 ### Avaliação
 
 O avaliador deve clonar o projeto, subir os containers, acessar o airflow no link http://localhost:11000, executar a DAG pesquisa_industrial_anual_empresas e conferir o resultado na pasta resulta
-# teste-engenheiro-de-dados-observatorio-da-industria
