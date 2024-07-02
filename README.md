@@ -1,4 +1,6 @@
-# O Objetivo principal do desafio é testar a capacidade do candidato resolver problemas comuns no dia a dia de um Engenheiro de dados junior.
+# O Objetivo principal
+
+- Testar a capacidade do candidato resolver problemas comuns no dia a dia de um Engenheiro de dados junior.
 
 ## Objetivos secundários
 
