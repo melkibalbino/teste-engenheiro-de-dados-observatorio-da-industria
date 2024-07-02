@@ -8,7 +8,7 @@
 - Instalar os pacotes necessários
 - Criar pastas e ajustar permissões se for necessário
 - Extrair as informações da Pesquisa Industrial Anual - Empresas do ibge
-- Transformar os dados extraidos num dataframe usando pyspark e mostrar o resutado
+- Transformar os dados extraidos em um dataframe usando pyspark e mostrar o resutado
 - Executar a DAG pesquisa_industrial_anual_empresas localmente
 
 Observação: Todo o código deve ser escrito no notebook workspace.ipynb, na pasta notebooks 
