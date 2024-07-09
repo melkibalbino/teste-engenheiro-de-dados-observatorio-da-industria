@@ -1,0 +1,93 @@
+[2024-07-09T14:37:16.449+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:37:15.343386+00:00 [queued]>
+[2024-07-09T14:37:16.455+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:37:15.343386+00:00 [queued]>
+[2024-07-09T14:37:16.455+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T14:37:16.466+0000] {taskinstance.py:2217} INFO - Executing <Task(PapermillOperator): workspace> on 2024-07-09 14:37:15.343386+00:00
+[2024-07-09T14:37:16.471+0000] {standard_task_runner.py:60} INFO - Started process 4821 to run task
+[2024-07-09T14:37:16.474+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pesquisa_industrial_anual_empresas', 'workspace', 'manual__2024-07-09T14:37:15.343386+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/pesquisa_industrial_anual_empresas/dags.py', '--cfg-path', '/tmp/tmp_flfvz_9']
+[2024-07-09T14:37:16.477+0000] {standard_task_runner.py:88} INFO - Job 17: Subtask workspace
+[2024-07-09T14:37:16.530+0000] {task_command.py:423} INFO - Running <TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:37:15.343386+00:00 [running]> on host 8596e3cff970
+[2024-07-09T14:37:16.624+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='observatorio@sistemafiea.com.br' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pesquisa_industrial_anual_empresas' AIRFLOW_CTX_TASK_ID='workspace' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T14:37:15.343386+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T14:37:15.343386+00:00'
+[2024-07-09T14:37:16.625+0000] {execute.py:83} INFO - Input Notebook:  /opt/***/dags/pesquisa_industrial_anual_empresas/notebooks/workspace.ipynb
+[2024-07-09T14:37:16.625+0000] {execute.py:84} INFO - Output Notebook: /opt/***/dags/resultado/pesquisa_industrial_anual_empresas_workspace_2024-07-09.ipynb
+[2024-07-09T14:37:17.915+0000] {clientwrap.py:44} INFO - Executing notebook with kernel: python3
+[2024-07-09T14:37:24.120+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/papermill/operators/papermill.py", line 118, in execute
+    pm.execute_notebook(
+  File "/home/airflow/.local/lib/python3.11/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+  File "/home/airflow/.local/lib/python3.11/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [6]":
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[6], line 9
+      1 schema = T.StructType([
+      2     T.StructField("id", T.StringType(), True),
+      3     T.StructField("variavel", T.StringType(), True),
+      4     T.StructField("unidade", T.StringType(), True),
+      5     T.StructField("resultados", T.ArrayType(T.StructType([
+      6         T.StructField("classificacoes", T.ArrayType(T.StructType([
+      7             T.StructField("id", T.StringType(), True),
+      8             T.StructField("nome", T.StringType(), True),
+----> 9             T.StructField("categoria", T.apType(T.StringType(), T.StringType()), True)
+     10         ])), True),
+     11         T.StructField("series", T.ArrayType(T.StructType([
+     12             T.StructField("localidade", T.StructType([
+     13                 T.StructField("id", T.StringType(), True),
+     14                 T.StructField("nivel", T.StructType([
+     15                     T.StructField("id", T.StringType(), True),
+     16                     T.StructField("nome", T.StringType(), True)
+     17                 ]), True),
+     18                 T.StructField("nome", T.StringType(), True)
+     19             ]), True),
+     20             T.StructField("serie", T.MapType(T.StringType(), T.StringType()), True)
+     21         ])), True)
+     22     ])), True)
+     23 ])
+
+AttributeError: module 'pyspark.sql.types' has no attribute 'apType'
+
+[2024-07-09T14:37:24.130+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=pesquisa_industrial_anual_empresas, task_id=workspace, execution_date=20240709T143715, start_date=20240709T143716, end_date=20240709T143724
+[2024-07-09T14:37:24.140+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 17 for task workspace (
+---------------------------------------------------------------------------
+Exception encountered at "In [6]":
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[6], line 9
+      1 schema = T.StructType([
+      2     T.StructField("id", T.StringType(), True),
+      3     T.StructField("variavel", T.StringType(), True),
+      4     T.StructField("unidade", T.StringType(), True),
+      5     T.StructField("resultados", T.ArrayType(T.StructType([
+      6         T.StructField("classificacoes", T.ArrayType(T.StructType([
+      7             T.StructField("id", T.StringType(), True),
+      8             T.StructField("nome", T.StringType(), True),
+----> 9             T.StructField("categoria", T.apType(T.StringType(), T.StringType()), True)
+     10         ])), True),
+     11         T.StructField("series", T.ArrayType(T.StructType([
+     12             T.StructField("localidade", T.StructType([
+     13                 T.StructField("id", T.StringType(), True),
+     14                 T.StructField("nivel", T.StructType([
+     15                     T.StructField("id", T.StringType(), True),
+     16                     T.StructField("nome", T.StringType(), True)
+     17                 ]), True),
+     18                 T.StructField("nome", T.StringType(), True)
+     19             ]), True),
+     20             T.StructField("serie", T.MapType(T.StringType(), T.StringType()), True)
+     21         ])), True)
+     22     ])), True)
+     23 ])
+
+AttributeError: module 'pyspark.sql.types' has no attribute 'apType'
+; 4821)
+[2024-07-09T14:37:24.165+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T14:37:24.179+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

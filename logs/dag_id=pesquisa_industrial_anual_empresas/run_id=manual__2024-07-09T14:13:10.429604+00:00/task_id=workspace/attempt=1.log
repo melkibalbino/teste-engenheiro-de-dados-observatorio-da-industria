@@ -1,0 +1,51 @@
+[2024-07-09T14:13:11.367+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:13:10.429604+00:00 [queued]>
+[2024-07-09T14:13:11.373+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:13:10.429604+00:00 [queued]>
+[2024-07-09T14:13:11.373+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T14:13:11.384+0000] {taskinstance.py:2217} INFO - Executing <Task(PapermillOperator): workspace> on 2024-07-09 14:13:10.429604+00:00
+[2024-07-09T14:13:11.387+0000] {standard_task_runner.py:60} INFO - Started process 2225 to run task
+[2024-07-09T14:13:11.390+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pesquisa_industrial_anual_empresas', 'workspace', 'manual__2024-07-09T14:13:10.429604+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/pesquisa_industrial_anual_empresas/dags.py', '--cfg-path', '/tmp/tmpdtgpv28j']
+[2024-07-09T14:13:11.392+0000] {standard_task_runner.py:88} INFO - Job 10: Subtask workspace
+[2024-07-09T14:13:11.436+0000] {task_command.py:423} INFO - Running <TaskInstance: pesquisa_industrial_anual_empresas.workspace manual__2024-07-09T14:13:10.429604+00:00 [running]> on host 8596e3cff970
+[2024-07-09T14:13:11.512+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='observatorio@sistemafiea.com.br' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pesquisa_industrial_anual_empresas' AIRFLOW_CTX_TASK_ID='workspace' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T14:13:10.429604+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T14:13:10.429604+00:00'
+[2024-07-09T14:13:11.513+0000] {execute.py:83} INFO - Input Notebook:  /opt/***/dags/pesquisa_industrial_anual_empresas/notebooks/workspace.ipynb
+[2024-07-09T14:13:11.513+0000] {execute.py:84} INFO - Output Notebook: /opt/***/dags/resultado/pesquisa_industrial_anual_empresas_workspace_2024-07-09.ipynb
+[2024-07-09T14:13:12.709+0000] {clientwrap.py:44} INFO - Executing notebook with kernel: python3
+[2024-07-09T14:13:19.806+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/papermill/operators/papermill.py", line 118, in execute
+    pm.execute_notebook(
+  File "/home/airflow/.local/lib/python3.11/site-packages/papermill/execute.py", line 131, in execute_notebook
+    raise_for_execution_errors(nb, output_path)
+  File "/home/airflow/.local/lib/python3.11/site-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+    raise error
+papermill.exceptions.PapermillExecutionError: 
+---------------------------------------------------------------------------
+Exception encountered at "In [7]":
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[7], line 1
+----> 1 df.write.json()
+      2 df.write.mode("overwrite").text("pesquisa_industrial_anual_empresas/resultado/.resultado")
+
+TypeError: DataFrameWriter.json() missing 1 required positional argument: 'path'
+
+[2024-07-09T14:13:19.816+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=pesquisa_industrial_anual_empresas, task_id=workspace, execution_date=20240709T141310, start_date=20240709T141311, end_date=20240709T141319
+[2024-07-09T14:13:19.827+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 10 for task workspace (
+---------------------------------------------------------------------------
+Exception encountered at "In [7]":
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[7], line 1
+----> 1 df.write.json()
+      2 df.write.mode("overwrite").text("pesquisa_industrial_anual_empresas/resultado/.resultado")
+
+TypeError: DataFrameWriter.json() missing 1 required positional argument: 'path'
+; 2225)
+[2024-07-09T14:13:19.837+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T14:13:19.851+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
