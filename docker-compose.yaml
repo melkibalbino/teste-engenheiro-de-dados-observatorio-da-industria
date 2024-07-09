@@ -1,5 +1,5 @@
 x-airflow-common: &airflow-common
-  image: local-cluster-airflow:1.0.0
+  build: .
   environment: &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
